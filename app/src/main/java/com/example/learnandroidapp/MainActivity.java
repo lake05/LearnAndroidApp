@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
         tv_response = findViewById(R.id.tv_response);
 
-        getString(R.string._0)
+        String value = getString(R.string._0);
     }
 
 
@@ -41,8 +41,14 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtras(bundle);
         mGetContent.launch(intent);
     }
+
+    public void goLoginMainActivity(View view) {
+        startActivity(new Intent(this, LoginMainActivity.class));
+    }
+
     // 针对 activity 结果注册回调
-    private final ActivityResultLauncher<Intent> mGetContent = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
+    private final ActivityResultLauncher<Intent> mGetContent = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
             new ActivityResultCallback<ActivityResult>() {
                 @Override
                 public void onActivityResult(ActivityResult result) {
@@ -54,9 +60,11 @@ public class MainActivity extends AppCompatActivity {
                             String response_content = bundle.getString("response_content");
                             String desc = String.format("收到返回消息：\n返回时间为：%s\n返回内容为：%s", response_time, response_content);
                             tv_response.setText(desc);
+
                         }
                     }
                 }
-            });
+            }
+    );
 
 }

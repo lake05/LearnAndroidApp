@@ -24,4 +24,5 @@
     <string name="_sqrt">√</string>
     <string name="life_cycle">Life Cycle</string>
     <string name="response">Response</string>
+    <string name="_switch">Switch开关</string>
 </resources>

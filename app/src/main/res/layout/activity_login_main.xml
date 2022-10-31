@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="5dp"
+    tools:context=".LoginMainActivity">
+
+    <CheckBox
+        android:id="@+id/cy_system"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="这是系统的CheckBox" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_gravity="start"
+            android:layout_weight="1"
+            android:padding="5dp"
+            android:text="@string/_switch" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:gravity="end"
+            android:padding="5dp" />
+    </LinearLayout>
+
+    <RadioGroup
+        android:id="@+id/rb_gender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Male" />
+
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Female" />
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Login Form:" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/editext_selector"
+        android:inputType="text" />
+
+    <Button
+        android:id="@+id/btn_alert"
+        android:layout_width="200dp"
+        android:layout_height="90dp"
+        android:background="@drawable/btn_nine_selector"
+        android:layout_gravity="center"
+        android:onClick="onBtnAlert"
+        android:text="Alert"
+        android:textColor="@color/white" />
+
+</LinearLayout>

@@ -33,6 +33,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this, Calculator.class));
     }
 
+    public void goStorageActivity(View view) {
+        startActivity(new Intent(this, StorageActivity.class));
+    }
+
     public void goLifeCycleActivity(View view) {
         Intent intent = new Intent(this, LifeCycleActivity.class);
         Bundle bundle = new Bundle();

@@ -50,6 +50,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this, LoginMainActivity.class));
     }
 
+    public void goShopCartActivity(View view) {
+        startActivity(new Intent(this, ShopCartActivity.class));
+    }
+
     // 针对 activity 结果注册回调
     private final ActivityResultLauncher<Intent> mGetContent = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),

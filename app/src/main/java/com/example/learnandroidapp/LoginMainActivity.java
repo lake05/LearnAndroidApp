@@ -15,12 +15,6 @@ public class LoginMainActivity extends AppCompatActivity implements CompoundButt
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_main);
-
-        CheckBox ck_system = findViewById(R.id.cy_system);
-        ck_system.setOnCheckedChangeListener(this);
-
-        RadioGroup rb_gender = findViewById(R.id.rb_gender);
-        rb_gender.setOnCheckedChangeListener(this);
     }
 
     @Override

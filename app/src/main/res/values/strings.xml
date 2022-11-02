@@ -25,11 +25,12 @@
     <string name="life_cycle">Life Cycle</string>
     <string name="response">Response</string>
     <string name="_switch">Switch开关</string>
-    <string name="login_by_password">login by Password</string>
-    <string name="verify_code">verify code</string>
-    <string name="phone_number">phone number</string>
-    <string name="input_phone_number">input phone number</string>
-    <string name="login_password">login password</string>
-    <string name="forget_passwords">forget</string>
-    <string name="remember_password">remember password</string>
+    <string name="storage">Storage</string>
+    <string name="name">姓名：</string>
+    <string name="please_input">请输入</string>
+    <string name="age">年龄：</string>
+    <string name="height">身高：</string>
+    <string name="weight">体重：</string>
+    <string name="married">已婚</string>
+    <string name="save">保存</string>
 </resources>

@@ -3,40 +3,77 @@ package com.example.learnandroidapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.Toast;
 
-public class ShopCartActivity extends AppCompatActivity implements View.OnClickListener {
+import com.example.learnandroidapp.database.UserDBHelper;
+import com.example.learnandroidapp.entity.User;
+import com.example.learnandroidapp.utils.ToastUtil;
 
-    private String mDatabaseName;
-    private TextView tv_database;
+public class ShopCartActivity extends AppCompatActivity {
+
+    private EditText et_name;
+    private EditText et_age;
+    private EditText et_height;
+    private EditText et_weight;
+    private CheckBox ck_married;
+    private SharedPreferences preferences;
+    private UserDBHelper mHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shop_cart);
 
-        findViewById(R.id.btn_database_create).setOnClickListener(this);
-        findViewById(R.id.btn_database_delete).setOnClickListener(this);
-        mDatabaseName = getFilesDir() + "/test.db";
-        tv_database = findViewById(R.id.tv_database);
+        et_name = findViewById(R.id.et_name);
+        et_age = findViewById(R.id.et_age);
+        et_height = findViewById(R.id.et_height);
+        et_weight = findViewById(R.id.et_weight);
+        ck_married = findViewById(R.id.ck_married);
+
+
     }
 
     @Override
-    public void onClick(View v) {
-        String desc = "";
-        switch (v.getId()) {
-            case R.id.btn_database_create:
-                final SQLiteDatabase db = openOrCreateDatabase(mDatabaseName, Context.MODE_PRIVATE, null);
-                desc = String.format("数据库%s创建成功", db.getPath());
-                break;
-            case R.id.btn_database_delete:
-                boolean result = deleteDatabase(mDatabaseName);
-                desc = String.format("数据库%s删除%s", mDatabaseName, result ? "成功" : "失败");
-                break;
-        }
-        tv_database.setText(desc);
+    protected void onStart() {
+        super.onStart();
+        mHelper = UserDBHelper.getInstance(this);
+        mHelper.openWriteLink();
+        mHelper.openReadLink();
     }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        mHelper.closeLink();
+    }
+
+
+    public void onInsert(View view) {
+        String name = et_name.getText().toString();
+        String age = et_age.getText().toString();
+        String height = et_height.getText().toString();
+        String weight = et_weight.getText().toString();
+
+        User user = new User(name, Integer.parseInt(age), Long.parseLong(height), Long.parseLong(weight), ck_married.isChecked());
+
+        if (mHelper.insert(user) > 0){
+            ToastUtil.show(this, "添加成功");
+        }
+    }
+
+    public void onDelete(View view) {
+    }
+
+    public void onEdit(View view) {
+    }
+
+    public void onRead(View view) {
+    }
+
+
 }
